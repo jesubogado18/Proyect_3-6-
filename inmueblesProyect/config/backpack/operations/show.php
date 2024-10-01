@@ -19,7 +19,7 @@ return [
 
     // If model has SoftDeletes, allow the admin to access the Show page for
     // soft deleted items & add a deleted_at column to ShowOperation?
-    'softDeletes' => false,
+    'softDeletes' => true,
 
     // Enable to group columns in tabs
     'tabsEnabled' => false,

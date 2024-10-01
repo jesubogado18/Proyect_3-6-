@@ -50,7 +50,7 @@ return [
     'actionsColumnPriority' => 1,
 
     // Nest action buttons within a dropdown in actions column
-    'lineButtonsAsDropdown' => false,
+    'lineButtonsAsDropdown' => true,
 
     // What is the minimum actions for the dropdown to be created
     // Example: when minimum to drop is «2»,  any row with less than «2» action buttons
@@ -72,7 +72,7 @@ return [
     // The query operator that is used to search on the table.
     // If you are using PostgreSQL you might want to change
     // to `ilike` for case-insensitive search
-    'searchOperator' => 'like',
+    'searchOperator' => 'ilike',
 
     // Display the `Showing X of XX entries (filtered  from X entries)`?
     // Setting this to false will improve performance on big datasets.
