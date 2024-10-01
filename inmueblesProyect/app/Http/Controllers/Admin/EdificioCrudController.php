@@ -61,10 +61,6 @@ class EdificioCrudController extends CrudController
         CRUD::field('edif_descripcion')->label('Descripción');
         CRUD::field('edif_direccion')->label('Dirección');
 
-        /**
-         * Fields can be defined using the fluent syntax:
-         * - CRUD::field('price')->type('number');
-         */
     }
 
     /**

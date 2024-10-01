@@ -44,10 +44,7 @@ class PisoCrudController extends CrudController
         CRUD::column('piso_direccion')->label('Dirección');
         CRUD::column('edificio')->attribute('edif_descripcion')->linkTo('edificio.show');
 
-        /**
-         * Columns can be defined using the fluent syntax:
-         * - CRUD::column('price')->type('number');
-         */
+
     }
 
     /**

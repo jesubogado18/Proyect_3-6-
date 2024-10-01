@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\UserRequest;
+use App\Http\Requests\SalaTipoRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class UserCrudController
+ * Class SalaTipoCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class UserCrudController extends CrudController
+class SalaTipoCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -26,11 +26,9 @@ class UserCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\User::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/user');
-        CRUD::setEntityNameStrings('usuario' , 'usuarios');  
-        // El primer usuario es el que va al lado del agregar 
-        // El segundo usuarios va como titular de la lista
+        CRUD::setModel(\App\Models\SalaTipo::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/salaTipo');
+        CRUD::setEntityNameStrings('Tipo de sala', 'Tipos de sala');
     }
 
     /**
@@ -42,10 +40,8 @@ class UserCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('row_number')->type('row_number')->label('id')->orderable(false);
-        CRUD::column('name')->label('Nombre');
-        CRUD::column('email')->label('Email');
-        CRUD::column('created_at')->label('Creado');
-        CRUD::column('updated_at')->label('Actualizado');
+        CRUD::column('stip_descripcion')->label('Descripción');
+
     }
 
     /**
@@ -56,10 +52,8 @@ class UserCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(UserRequest::class);
-        CRUD::field('name')->label('Nombre');
-        CRUD::field('email')->label('Email');
-        CRUD::field('password')->label('Contraseña');
+        CRUD::setValidation(SalaTipoRequest::class);
+        CRUD::field('stip_descripcion')->label('Descripción');
     }
 
     /**

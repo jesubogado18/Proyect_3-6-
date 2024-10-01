@@ -19,6 +19,13 @@ Route::group([
     Route::crud('user', 'UserCrudController');
     Route::crud('edificio', 'EdificioCrudController');
     Route::crud('piso', 'PisoCrudController');
+    Route::crud('sector', 'SectorCrudController');
+    Route::crud('proveedor', 'ProveedorCrudController');
+    Route::crud('bienessubtipo', 'BienessubtipoCrudController');
+    Route::crud('tipo-bien', 'TipoBienCrudController');
+    Route::crud('dependencia', 'DependenciaCrudController');
+    Route::crud('sala-tipo', 'SalaTipoCrudController');
+    Route::crud('sala', 'SalaCrudController');
 }); // this should be the absolute last line of this file
 
 /**
