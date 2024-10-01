@@ -39,7 +39,7 @@ class ProveedorCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('row_number')->type('row_number')->label('id')->orderable(false);
+        CRUD::column('row_number')->type('row_number')->label('#')->orderable(false);
         CRUD::column('prov_nombre')->label('Nombre');
         CRUD::column('prov_telefono')->label('Teléfono');
         CRUD::column('prov_ruc')->label('RUC');
@@ -66,7 +66,6 @@ class ProveedorCrudController extends CrudController
         CRUD::field('prov_ruc')->label('RUC');
         CRUD::field('prov_direccion')->label('Dirección');
         CRUD::field('prov_localidad')->label('Localidad');
-
     }
 
     /**

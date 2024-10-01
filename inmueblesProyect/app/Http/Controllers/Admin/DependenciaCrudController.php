@@ -39,7 +39,7 @@ class DependenciaCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-       CRUD::column('row_number')->type('row_number')->label('id')->orderable(false);
+        CRUD::column('row_number')->type('row_number')->label('#')->orderable(false);
         CRUD::column('depe_descripcion')->label('Descripción');
         CRUD::column('depe_telefono')->label('Teléfono');
     }

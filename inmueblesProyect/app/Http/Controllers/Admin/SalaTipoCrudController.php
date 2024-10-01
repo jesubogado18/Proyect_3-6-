@@ -27,7 +27,7 @@ class SalaTipoCrudController extends CrudController
     public function setup()
     {
         CRUD::setModel(\App\Models\SalaTipo::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/salaTipo');
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/sala-tipo');
         CRUD::setEntityNameStrings('Tipo de sala', 'Tipos de sala');
     }
 
@@ -39,9 +39,8 @@ class SalaTipoCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('row_number')->type('row_number')->label('id')->orderable(false);
+        CRUD::column('row_number')->type('row_number')->label('#')->orderable(false);
         CRUD::column('stip_descripcion')->label('Descripción');
-
     }
 
     /**

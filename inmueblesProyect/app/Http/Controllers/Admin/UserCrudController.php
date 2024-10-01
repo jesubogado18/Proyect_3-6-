@@ -28,7 +28,7 @@ class UserCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\User::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/user');
-        CRUD::setEntityNameStrings('usuario' , 'usuarios');  
+        CRUD::setEntityNameStrings('usuario', 'usuarios');
         // El primer usuario es el que va al lado del agregar 
         // El segundo usuarios va como titular de la lista
     }
@@ -41,7 +41,7 @@ class UserCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('row_number')->type('row_number')->label('id')->orderable(false);
+        CRUD::column('row_number')->type('row_number')->label('#')->orderable(false);
         CRUD::column('name')->label('Nombre');
         CRUD::column('email')->label('Email');
         CRUD::column('created_at')->label('Creado');

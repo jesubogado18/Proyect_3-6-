@@ -39,9 +39,9 @@ class SalaCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('row_number')->type('row_number')->label('id')->orderable(false);
+        CRUD::column('row_number')->type('row_number')->label('#')->orderable(false);
         CRUD::column('sector')->attribute('sect_descripcion')->linkTo('sector.show');
-        CRUD::column('salaTipo')->attribute('stip_descripcion')->label('Tipo de sala');
+        CRUD::column('salaTipo')->attribute('stip_descripcion')->label('Tipo de sala')->linkTo('sala-tipo.show');
         CRUD::column('dependencia')->attribute('depe_descripcion')->linkTo('dependencia.show');
         CRUD::column('sala_descripcion')->label('Descripción');
         CRUD::column('sala_direccion')->label('Dirección');
@@ -55,41 +55,40 @@ class SalaCrudController extends CrudController
      * @return void
      */
     protected function setupCreateOperation()
-{
-    CRUD::setValidation(SalaRequest::class);
-    
-    CRUD::field([
-        'label' => 'Sectores',
-        'name' => 'sect_id',
-        'entity' => 'sector',
-        'type' => 'select',
-        'attribute' => 'sect_descripcion', // Asegúrate de que este campo exista en el modelo Sector
-        'model' => 'App\Models\Sector'
-    ]);
-    
-    CRUD::field([
-        'label' => 'Tipo de sala',
-        'name' => 'stip_id',
-        'entity' => 'salaTipo', 
-        'type' => 'select',
-        'attribute' => 'stip_descripcion',
-        'model' => 'App\Models\SalaTipo'
-    ]);
-    
-    CRUD::field([
-        'label' => 'Dependencia',
-        'name' => 'depe_id',
-        'entity' => 'dependencia',
-        'type' => 'select',
-        'attribute' => 'depe_descripcion',
-        'model' => 'App\Models\Dependencia'
-    ]);
-    
-    CRUD::field('sala_descripcion')->label('Descripción');
-    CRUD::field('sala_direccion')->label('Dirección');
-    CRUD::field('sala_capacidad')->label('Capacidad');
-    
-}
+    {
+        CRUD::setValidation(SalaRequest::class);
+
+        CRUD::field([
+            'label' => 'Sectores',
+            'name' => 'sect_id',
+            'entity' => 'sector',
+            'type' => 'select',
+            'attribute' => 'sect_descripcion', // Asegúrate de que este campo exista en el modelo Sector
+            'model' => 'App\Models\Sector'
+        ]);
+
+        CRUD::field([
+            'label' => 'Tipo de sala',
+            'name' => 'stip_id',
+            'entity' => 'salaTipo',
+            'type' => 'select',
+            'attribute' => 'stip_descripcion',
+            'model' => 'App\Models\SalaTipo'
+        ]);
+
+        CRUD::field([
+            'label' => 'Dependencia',
+            'name' => 'depe_id',
+            'entity' => 'dependencia',
+            'type' => 'select',
+            'attribute' => 'depe_descripcion',
+            'model' => 'App\Models\Dependencia'
+        ]);
+
+        CRUD::field('sala_descripcion')->label('Descripción');
+        CRUD::field('sala_direccion')->label('Dirección');
+        CRUD::field('sala_capacidad')->label('Capacidad');
+    }
 
 
     /**

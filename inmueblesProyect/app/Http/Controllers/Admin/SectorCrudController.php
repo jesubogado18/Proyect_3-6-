@@ -39,9 +39,9 @@ class SectorCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        
 
-        CRUD::column('row_number')->type('row_number')->label('id')->orderable(false);
+
+        CRUD::column('row_number')->type('row_number')->label('#')->orderable(false);
         CRUD::column('sect_descripcion')->label('Descripción');
         CRUD::column('sect_direccion')->label('Dirección');
         CRUD::column('piso')->attribute('piso_descripcion')->linkTo('piso.show');

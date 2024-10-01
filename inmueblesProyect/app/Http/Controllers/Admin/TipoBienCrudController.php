@@ -39,11 +39,11 @@ class TipoBienCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('row_number')->type('row_number')->label('id')->orderable(false);
+        CRUD::column('row_number')->type('row_number')->label('#')->orderable(false);
         CRUD::column('btip_descripcion')->label('Descripción');
-        CRUD::column('btip_detalle')->label('Detalle'); 
+        CRUD::column('btip_detalle')->label('Detalle');
         CRUD::column('btip_costo')->label('Costo');
-        CRUD::column('BienesSubTipo.bsti_descripcion')->label('Subtipo');
+        CRUD::column('BienesSubTipo')->attribute('bsti_descripcion')->label('Subtipo')->linkTo('bienessubtipo.show');
     }
 
     /**
@@ -63,7 +63,7 @@ class TipoBienCrudController extends CrudController
             'name' => 'bsti_id',
             'entity' => 'BienesSubTipo',
             'type' => 'select',
-            'attribute' => 'bsti_detalles',
+            'attribute' => 'bsti_descripcion',
             'model' => 'App\Models\BienesSubTipo'
         ]);
     }
